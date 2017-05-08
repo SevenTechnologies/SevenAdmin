@@ -245,11 +245,7 @@ if(doc.labour=='with_service_tax'){
 else{
   document.getElementById("without_service_tax").checked = true;
 }
-if(doc.painting=='regular'){
-  document.getElementById("regular").checked = true;
-}else if(doc.painting=='regular_service_tax'){
-  document.getElementById("regular_service_tax").checked = true;
-}else if(doc.painting=='75_25'){
+ if(doc.painting=='75_25'){
 document.getElementById("75_25").checked = true;
 }else if(doc.painting=='75_25_service_tax'){
 document.getElementById("75_25_service_tax").checked = true;

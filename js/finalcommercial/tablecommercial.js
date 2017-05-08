@@ -11,7 +11,7 @@
  * and open the template in the editor.
  */
 
-var vehicleCounter = 0, surveyCounter = 0, partsCounter = 0, commentCounter = 0,subcount=0,counter=0;
+var vehicleCounter = 0, surveyCounter = 0, partsCounter = 0, commentCounter = 0,subcount=0,counter=0,imtCounter=0;
 
 function addRow(tableId) {
 
@@ -337,7 +337,7 @@ function addRow(tableId) {
 
 
             //show only if commercial
-            var imt23CheckboxCell = document.createElement('div');
+           /* var imt23CheckboxCell = document.createElement('div');
             imt23CheckboxCell.className = 'table_cell_class new_css';
             imt23CheckboxCell.className += ' imt23';
             var imt23Checkbox = document.createElement('input');
@@ -346,7 +346,7 @@ function addRow(tableId) {
             imt23Checkbox.className += ' form-control';
             imt23Checkbox.type = 'checkbox';
             imt23CheckboxCell.appendChild(imt23Checkbox);
-            rowDiv.appendChild(imt23CheckboxCell);
+            rowDiv.appendChild(imt23CheckboxCell);*/
 
 
 //            var deleteCheckboxCell = document.createElement('div');
@@ -494,7 +494,266 @@ function addRow(tableId) {
             commentCounter++;
 
             comments.focus();
+            break;
+case 4:
+      var imtDiv = document.getElementById('damagedParts');
+            var rowCount = imtDiv.childElementCount;
+            
+            //var key=document.getElementById("button").accessKey;
+          
+            
+             //console.log(key=document.getElementsByClassName("button").accessKey);
+             //if(key=='p')
+             //{
+            
+             var mainDiv=document.createElement('div');
+             mainDiv.className = 'table_row_class';
+             mainDiv.className = 'parentDiv';
 
+             mainDiv.id="m" + imtCounter;
+             
+             imtDiv.appendChild(mainDiv);
+            var rowDiv = document.createElement('div');
+            rowDiv.className = 'table_row_class_parent';
+           // mainDiv.style.display='width:100%;'
+            rowDiv.id = "k" + imtCounter;
+            mainDiv.appendChild(rowDiv);
+
+            var slNoCell = document.createElement('div');
+            slNoCell.className = 'table_cell_class new_css';
+            var slNo = document.createElement('div');
+            slNo.className = 'dslno';
+            slNo.innerHTML = rowCount;
+            slNo.id="damage_part["+rowCount+"][0][sl_no]";
+            slNoCell.appendChild(slNo);
+            rowDiv.appendChild(slNoCell);
+
+            var partNameCell = document.createElement('div');
+            partNameCell.className = 'table_cell_class new_css';
+            var partName = document.createElement('input');
+            partName.className = 'part_name_class';
+            partName.className += " form-control";
+            partName.name="damage_part["+rowCount+"][0][part_name]";
+            partName.type = 'text';
+            partNameCell.appendChild(partName);
+            rowDiv.appendChild(partNameCell);
+
+//            var quantityClaimedCell = document.createElement('div');
+//            quantityClaimedCell.className = 'table_cell_class';
+//            var quantityClaimed = document.createElement('input');
+//            quantityClaimed.className = 'part_quantity_claimed_class';
+//            quantityClaimed.style.textAlign = 'right';
+//            quantityClaimed.type = 'number';
+//            quantityClaimed.min = 0;
+//            quantityClaimed.max = 99;
+//            quantityClaimed.value = 1;
+//            quantityClaimedCell.appendChild(quantityClaimed);
+//            rowDiv.appendChild(quantityClaimedCell);
+//
+//            var quantityAssessedCell = document.createElement('div');
+//            quantityAssessedCell.className = 'table_cell_class';
+//            var quantityAssessed = document.createElement('input');
+//            quantityAssessed.className = 'part_quantity_assessed_class';
+//            quantityAssessed.style.textAlign = 'right';
+//            quantityAssessed.type = 'number';
+//            quantityAssessed.min = 0;
+//            quantityAssessed.max = 99;
+//            quantityAssessed.value = 1;
+//            quantityAssessedCell.appendChild(quantityAssessed);
+//            rowDiv.appendChild(quantityAssessedCell);
+
+            var claimedCell = document.createElement('div');
+            claimedCell.className = 'table_cell_class new_css';
+            var claimed = document.createElement('input');
+            claimed.className = 'part_claimed_class';
+            claimed.className += " form-control";
+            claimed.name= "damage_part["+rowCount+"][0][claimed]";
+            claimed.id = 'claim' + imtCounter;
+            claimed.style.textAlign = 'right';
+            claimed.type = 'number';
+            claimed.min = 0;
+            claimed.max = 999999;
+            claimed.value = "0";
+            claimed.onblur = function () {
+
+                vatCalculation(claimed.id);
+
+            };
+            claimedCell.appendChild(claimed);
+            rowDiv.appendChild(claimedCell);
+
+            var assessedCell = document.createElement('div');
+            assessedCell.className = 'table_cell_class new_css';
+            var assessed = document.createElement('input');
+            assessed.className = 'part_assessed_class';
+            assessed.className += " form-control";
+            assessed.name= "damage_part["+rowCount+"][0][assessed]";
+            assessed.id = 'assess' + imtCounter;
+            assessed.style.textAlign = 'right';
+            assessed.type = 'number';
+            assessed.min = 0;
+            assessed.max = 999999;
+            assessed.value = "0";
+            assessed.onblur = function () {
+
+                vatCalculation(assessed.id);
+
+            };
+            assessedCell.appendChild(assessed);
+            rowDiv.appendChild(assessedCell);
+
+//            var repairedCell = document.createElement('div');
+//            repairedCell.className = 'table_cell_class';
+//            var repaired = document.createElement('input');
+//            repaired.className = 'part_repaired_class';
+//            repaired.style.textAlign = 'right';
+//            repaired.type = 'number';
+//            repaired.min = 0;
+//            repaired.max = 999999;
+//            repaired.value = 0;
+//            repaired.onblur = function () {
+//
+//                uberCalculations();
+//
+//            };
+//            repairedCell.appendChild(repaired);
+//            rowDiv.appendChild(repairedCell);
+
+            var natureOfDamagedCell = document.createElement('div');
+            natureOfDamagedCell.className = 'table_cell_class new_css';
+            var natureOfDamage = document.createElement('textarea');
+            natureOfDamage.className = 'nature_of_damage_class';
+            natureOfDamage.className += ' form-control';
+            natureOfDamage.name= "damage_part["+rowCount+"][0][nature_of_damage]";
+            natureOfDamage.rows = 2;
+            natureOfDamage.cols = 20;
+            natureOfDamagedCell.appendChild(natureOfDamage);
+            rowDiv.appendChild(natureOfDamagedCell);
+
+            var partSelectCell = document.createElement('div');
+            partSelectCell.className = 'table_cell_class new_css';
+            var partSelect = document.createElement('select');
+            partSelect.className = 'part_material_class';
+            partSelect.className += ' form-control';
+            partSelect.name= "damage_part["+rowCount+"][0][value]";
+            partSelect.options.add(new Option("Select", "", true, true));
+            partSelect.options.add(new Option("Fibre", "Fibre"));
+            partSelect.options.add(new Option("Glass", "Glass"));
+            partSelect.options.add(new Option("Metal", "Metal"));
+            partSelect.options.add(new Option("Plastic", "Plastic"));
+            partSelect.options.add(new Option("Rubber", "Rubber"));
+            partSelect.options.add(new Option("Labour", "Labour"));
+            partSelect.options.add(new Option("Paint", "Paint"));
+            partSelect.options.add(new Option("Consolidated-Labour", "Consolidated-Labour"));
+            partSelectCell.appendChild(partSelect);
+            rowDiv.appendChild(partSelectCell);
+
+
+            //show only if commercial
+           /* var imt23CheckboxCell = document.createElement('div');
+            imt23CheckboxCell.className = 'table_cell_class new_css';
+            imt23CheckboxCell.className += ' imt23';
+            var imt23Checkbox = document.createElement('input');
+            imt23Checkbox.className = 'imt23_checkbox_class';
+            imt23Checkbox.name= "damage_parts["+rowCount+"][0][imt23]";
+            imt23Checkbox.className += ' form-control';
+            imt23Checkbox.type = 'checkbox';
+            imt23CheckboxCell.appendChild(imt23Checkbox);
+            rowDiv.appendChild(imt23CheckboxCell);*/
+
+
+//            var deleteCheckboxCell = document.createElement('div');
+//            deleteCheckboxCell.className = 'table_cell_class';
+//            var deleteCheckbox = document.createElement('input');
+//            deleteCheckbox.className = 'deleted_checkbox_class';
+//            deleteCheckbox.type = 'checkbox';
+//            deleteCheckbox.onclick = function () {
+//
+//                if (deleteCheckbox.checked) {
+//
+//                    showDeletedReason(partsCounter);
+//
+//                } else {
+//
+//                    hideDeletedReason(partsCounter);
+//
+//                }
+//
+//            };
+//            deleteCheckboxCell.appendChild(deleteCheckbox);
+//            rowDiv.appendChild(deleteCheckboxCell);
+
+            var deletedReasonCell = document.createElement('div');
+            deletedReasonCell.className = 'table_cell_class new_css';
+            deletedReasonCell.className += ' deleted_reason_cell_class';
+            var deletedReason = document.createElement('textarea');
+            deletedReason.id = 'deleted_reason' + imtCounter;
+            deletedReason.className = 'deleted_reason_class';
+            deletedReason.name= "damage_part["+rowCount+"][0][reason]";
+            deletedReason.className += ' form-control';
+            deletedReason.rows = 2;
+            deletedReason.cols = 20;
+        //    deletedReason.style.display = 'none';
+//            deletedReasonCell.style.display = 'none';
+            deletedReasonCell.appendChild(deletedReason);
+            rowDiv.appendChild(deletedReasonCell);
+
+            var deleteRowCell = document.createElement('div');
+            deleteRowCell.className = 'table_cell_class new_css';
+            var deleteRow = document.createElement('input');
+            deleteRow.className = "btn";
+            deleteRow.className += " btn-primary";
+            deleteRow.type = 'button';
+            deleteRow.value = 'Remove Part';
+            deleteRow.onclick = function () {
+
+                removeeRow(2, mainDiv.id);
+
+            };
+            deleteRowCell.appendChild(deleteRow);
+            rowDiv.appendChild(deleteRowCell);
+
+            var addRowCell = document.createElement('div');
+            addRowCell.className = 'table_cell_class new_css';
+            var addRow = document.createElement('input');
+            addRow.className = "btn";
+            addRow.className += " btn-primary damage_parts_"+rowCount+" ";
+            addRow.type = 'button';
+            addRow.value = 'Add Part';
+            addRow.id='add_part';
+            addRow.onclick = function () {
+               // var a="";
+               
+                //console.log(a);
+                addSubRow(rowCount);
+            };
+            addRowCell.appendChild(addRow);
+            rowDiv.appendChild(addRowCell);
+            imtCounter++;
+            subcount++;
+            partName.focus();
+            var m='',i=1;
+            $(document).on('change', ".part_material_class", function(){
+            var m=$(this).val();
+            part = $(this).attr('name');
+            console.log(part);
+            part = part.split("[", 2);
+             console.log(part);
+            part = part[1].replace(']', "");
+
+            console.log(part);
+            //console.log(m=='Labour' || m=='Paint');
+            if(m=='Labour' || m=='Paint'){
+                var x = document.getElementById("myBtn").getAttribute("onclick");
+            $(".damage_part_"+part).attr("disabled", true);
+            //rowCount++;
+            }
+            i++;
+     });
+
+
+
+            break;
     }
 
 }

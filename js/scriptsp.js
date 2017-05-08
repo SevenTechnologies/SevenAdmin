@@ -15,9 +15,9 @@ var a = url.split("_id=")[1];
     document.getElementById("company_name_final_private_id").value=doc.company_name_final_private_id;
     document.getElementById("company_address_final_private_id").value=doc.company_address_final_private_id;
     document.getElementById("policy_number_code_final_private_id").value=doc.policy_number_code_final_private_id;
-    document.getElementById("policy_number_final_private_id").value=doc.policy_number_final_private_id;
+    //document.getElementById("policy_number_final_private_id").value=doc.policy_number_final_private_id;
     document.getElementById("claim_number_code_final_private_id").value=doc.claim_number_code_final_private_id;
-    document.getElementById("claim_number_final_private_id").value=doc.claim_number_final_private_id;
+   // document.getElementById("claim_number_final_private_id").value=doc.claim_number_final_private_id;
     document.getElementById("insurer_code_final_private_id").value=doc.insurer_code_final_private_id;
     document.getElementById("insurer_name_final_private_id").value=doc.insurer_name_final_private_id;
     document.getElementById("insurer_address_final_private_id").value=doc.insurer_address_final_private_id;
@@ -109,7 +109,7 @@ document.getElementById("outstation_allowance_final_private_id").value=doc.outst
 document.getElementById("postage_charges_final_private_id").value=doc.postage_charges_final_private_id;
 
 
-var length=Object.keys(doc.vehicle_permitted).length;
+//var length=Object.keys(doc.vehicle_permitted).length;
     for(var i=0;i<1;i++){  
      //length-4
     for(var key in doc.vehicle_permitted){
@@ -126,8 +126,8 @@ var length=Object.keys(doc.vehicle_permitted).length;
         }
 
  }
-var len=Object.keys(doc.survey_dates).length;
-console.log(doc.survey_dates);
+//var len=Object.keys(doc.survey_dates).length;
+
 
     for(var j=0;j<1;j++){  
       //len-2
@@ -144,7 +144,7 @@ console.log(doc.survey_dates);
            
         }
  }
- var p=Object.keys(doc.preliminary).length;
+ //var p=Object.keys(doc.preliminary).length;
     for(var q=0;q<1;q++)
      {  
      //n-2
@@ -160,7 +160,7 @@ console.log(doc.survey_dates);
            
     }
  }
- var n=Object.keys(doc.surveyor).length;
+ //var n=Object.keys(doc.surveyor).length;
     for(var m=0;m<1;m++)
      {  
      //n-2

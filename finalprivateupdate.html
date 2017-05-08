@@ -920,6 +920,32 @@ and open the template in the editor.
                     </div>
                     
                     <input type="button" id="button" value="Add New Part" onclick="addRow(2)" accesskey="p" hidden >
+                     <div class="row">
+                        <div class="col-xs-10">
+                            <label>Description of Deleted Spare Parts  - Cost: (Use alt+shift+d to add new entry.)<br></label>
+                        </div>
+                    </div>
+                    <div class="table_class" id="damagedPartsDeleteTable" name="damagedPartsDeletesTable" >
+                        <div class="table_row_class " >
+                            <div class="table_cell_class new_css">Sl. No.</div>
+                            <div class="table_cell_class new_css">Part Name</div>
+                            <div class="table_cell_class new_css">QE</div>
+                            <div class="table_cell_class new_css">QA</div>
+
+                            <!--                                <div class="table_cell_class">Qty. Claimed</div>
+                                                            <div class="table_cell_class">Qty. Assessed</div>-->
+                            <div class="table_cell_class new_css">Claimed</div>
+                            <div class="table_cell_class new_css">Amount as per<br>Invoice</div>
+                            <div class="table_cell_class new_css">Nature of damage</div>
+                            <div class="table_cell_class new_css">Parts</div>
+                            <!--hidden for private then going o commercial doesnt show up rightnot working-->
+                            <!--<div class="table_cell_class imt23">IMT23</div>-->
+                            <!--<div class="table_cell_class">Deleted</div>-->
+                            <div class="table_cell_class new_css" id="parts_reason_column" name="parts_reason_column">Reason for Deletion</div>
+                        </div>
+                    </div>
+                    
+                    <input type="button" id="button" value="Add New Part" onclick="addRow(4)" accesskey="d" hidden >
                     <!--                        <div class="row">
                                                 <div class="col-xs-10">
                                                     <label>Painting Charges (Use alt+c to add new entry.)<br></label>
@@ -1681,6 +1707,7 @@ var a = url.split("_id=")[1];
            </script>
         <script type="text/javascript">
             // When the document is ready
+            document.getElementById("damagedPartsDeleteTable").style.display="none";
             $(document).ready(function () {
                 $('#report_date_final_private_id').datepicker({
                     format: "dd/mm/yyyy"

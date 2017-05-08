@@ -790,12 +790,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="col-xs-10">
-                            <input type="radio" name="imt23" id="imt23_50" value="imt23_50"  checked/><label for="imt23_50">imt23 @ 50%</label><!--onclick="imt23PercentageSelection()"  -->
-                            <input type="radio" name="imt23" id="imt23_25" value="imt23_25" /><label for="imt23_25">imt23 @ 25%</label><!-- onclick="imt23PercentageSelection()"-->
+                            <input type="radio" name="imt23" id="imt23_50" value="imt23_50"  checked/><label for="imt23_50">imt23 @ 50%</label>onclick="imt23PercentageSelection()"  
+                          <input type="radio" name="imt23" id="imt23_25" value="imt23_25" /><label for="imt23_25">imt23 @ 25%</label>onclick="imt23PercentageSelection()"
                         </div>
-                    </div>
+                    </div>-->
                     <!--                    <div>
                                             <div class="col-xs-1 row">
                                                 <label>Body</label>
@@ -913,11 +913,34 @@
                             <div class="table_cell_class new_css">Nature of damage</div>
                             <div class="table_cell_class new_css">Value</div>
                             <!--hidden for private then going commercial doesnt show up rightnot working-->
-                            <div class="table_cell_class new_css">IMT23</div>
+                            
                             <!--<div class="table_cell_class">Deleted</div>-->
                             <div class="table_cell_class new_css" id="parts_reason_column">Reason for Deletion</div>
                         </div>
                     </div>
+                    <input type="button" value="Add New Part" onclick="addRow(2)" accesskey="p" hiddenname="final_commercial_damage_parts_data" hidden >
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <label>Description of Spare Parts require replacement - Cost under IMT23: (Use alt+shift+k to add new entry.)<br></label>
+                        </div>
+                    </div>
+                    <div class="table_class" id="damagedParts" name="damagePartsTable[]">
+                        <div class="table_row_class">
+                            <div class="table_cell_class new_css">Sl. No.</div>
+                            <div class="table_cell_class new_css">Part Name</div>
+                            <!--                                <div class="table_cell_class">Qty. Claimed</div>
+                                                            <div class="table_cell_class">Qty. Assessed</div>-->
+                            <div class="table_cell_class new_css">Claimed</div>
+                            <div class="table_cell_class  new_css">Amount as per<br>Invoice</div>
+                            <div class="table_cell_class new_css">Nature of damage</div>
+                            <div class="table_cell_class new_css">Value</div>
+                            <!--hidden for private then going commercial doesnt show up rightnot working-->
+                            
+                            <!--<div class="table_cell_class">Deleted</div>-->
+                            <div class="table_cell_class new_css" id="parts_reason_column">Reason for Deletion</div>
+                        </div>
+                    </div>
+
                     <!--                        <div class="row">
                                                 <div class="col-xs-2">
                                                     <label>Parts Total:</label>
@@ -994,7 +1017,7 @@
                                                     </div>
                                                 </div>
                                             </div>-->
-                    <input type="button" value="Add New Part" onclick="addRow(2)" accesskey="p" hiddenname="final_commercial_damage_parts_data" hidden >
+                    <input type="button" value="Add New Part" onclick="addRow(4)" accesskey="k" hiddenname="final_commercial_damage_parts_data" hidden >
                     
                     <!--                        <div class="row">
                                                 <div class="col-xs-10">

@@ -1,5 +1,7 @@
 
 var db=new PouchDB('sevenTech');
+var aValue =  localStorage.getItem('id');
+console.log(aValue);
 function updateFinalPrivate(){
   //document.getElementById("reinspection").disabled = false;
 var error_company_code,error_policy_no, error_policy_code,error_claim_no, error_claim_code,error_insurer_code, error_endorsement_no, error_registration_no; 
@@ -194,7 +196,7 @@ function listData(data){
        str+="<tr id='row'><td>"+count+"</td><td>"+data[i].doc._id+"</td><td>"
         +data[i].doc.vehicle_registerd_number_final_private_id+"</td><td>"+data[i].doc.survey_request_date_final_private_id+"</td><td>"
         +data[i].doc.survey_place_final_private_id+"</td><td><input type='button' id='listData' href='' value='Edit' onClick='Edit(\""+data[i].doc._id+"\");'/>"+
-         "</td><td> <input type='button' value='View' onClick='Report(\""+data[i].doc._id+"\");'/>"+
+         "</td><td> <input type='button' value='View' onClick='Report(\""+data[i].doc._id+"\",\""+aValue+"\");'/>"+
          "</td><td> <input type='button' value='View' onClick='Bill(\""+data[i].doc._id+"\");'/>"+
          "</td><td> <input type='button' value='Delete' id='theValue' onClick='Delete(\""+data[i].doc._id+"\");'/></td></tr>";
  count++;
@@ -209,12 +211,24 @@ function listData(data){
   $(document).ready(function() { $('#example').DataTable(); } );
          var table = $('#example').DataTable();
 }   
+
 function Edit(_id){
   window.location.href = 'finalprivateupdate.html?_id=' +_id;
 }
-function Report(_id){
- window.location.href = 'view.html?_id=' +_id;
+ 
+function Report(_id,val){
+  console.log(val);
+  if(val==1){
+    window.location.href = 'view.html?_id=' +_id;
+  }
+  else if(val==2){
+    window.location.href = 'viewformat.html?_id=' +_id;
+  }
+
+  
 }
+
+
 function Bill(_id){
  window.location.href = 'viewbill.html?_id=' +_id;
 }

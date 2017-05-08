@@ -1,4 +1,5 @@
 var db= new PouchDB('sevenTech');
+var aValue =  localStorage.getItem('id');
 function updateSpotCommercial(){
 var error_company_code,error_policy_no,error_permit_no, error_policy_code,error_claim_no, error_claim_code,error_insurer_code, error_endorsement_no, error_registration_no; 
     //var error_policy_no=true;
@@ -9,10 +10,10 @@ var error_company_code,error_policy_no,error_permit_no, error_policy_code,error_
 
         error_company_code=check_company_code();
        
-       error_policy_no= check_policy_no();
+      // error_policy_no= check_policy_no();
        error_policy_code= check_policy_code();
        
-        error_claim_no=check_claim_no();
+       // error_claim_no=check_claim_no();
         error_claim_code=check_claim_code();
         
         error_insurer_code=check_insurer_code();
@@ -22,7 +23,7 @@ var error_company_code,error_policy_no,error_permit_no, error_policy_code,error_
         error_registration_no=check_registration_no();
         error_permit_no=check_permit_no();
           //console.log(a);
-if(error_company_code == false &&error_permit_no==false && error_policy_no== false && error_policy_code== false && error_claim_no == false && error_claim_code == false && error_insurer_code == false && error_endorsement_no==false && error_registration_no==false){
+if(error_company_code == false &&error_permit_no==false &&error_policy_code== false && error_claim_code == false && error_insurer_code == false && error_endorsement_no==false && error_registration_no==false){
 document.getElementById("reinspection").disabled = false;
 var data = $('#form_final_private_id').serializeObject();
 data._id = $('#report_number_final_private_id').val();
@@ -87,10 +88,10 @@ var error_company_code,error_policy_no,error_permit_no, error_policy_code,error_
 
         error_company_code=check_company_code();
        
-       error_policy_no= check_policy_no();
+      // error_policy_no= check_policy_no();
        error_policy_code= check_policy_code();
        
-        error_claim_no=check_claim_no();
+       // error_claim_no=check_claim_no();
         error_claim_code=check_claim_code();
         
         error_insurer_code=check_insurer_code();
@@ -100,7 +101,7 @@ var error_company_code,error_policy_no,error_permit_no, error_policy_code,error_
         error_registration_no=check_registration_no();
         error_permit_no=check_permit_no();
           //console.log(a);
-if(error_company_code == false &&error_permit_no==false && error_policy_no== false && error_policy_code== false && error_claim_no == false && error_claim_code == false && error_insurer_code == false && error_endorsement_no==false && error_registration_no==false){
+if(error_company_code == false &&error_permit_no==false &&  error_policy_code== false && error_claim_code == false && error_insurer_code == false && error_endorsement_no==false && error_registration_no==false){
 document.getElementById("reinspection").disabled = false;
 var data = $('#form_final_private_id').serializeObject();
 data._id = $('#report_number_final_private_id').val();
@@ -277,7 +278,7 @@ function display(data){
         "</td><td>"+data[i].doc.outstation_allowance_final_private_id+
         "</td><td>"+data[i].doc.postage_charges_final_private_id+*/
        "</td><td><input type='button'  id='editBtn' value='Edit' onClick='Edit(\""+data[i].doc._id+"\");'/>"+
-         "</td><td><input type='button'  id='viewBtn' value='View' onClick='Report(\""+data[i].doc._id+"\");'/>"+
+         "</td><td><input type='button'  id='viewBtn' value='View' onClick='Report(\""+data[i].doc._id+"\",\""+aValue+"\");'/>"+
          "</td><td><input type='button'  id='viewBtn' value='View' onClick='Bill(\""+data[i].doc._id+"\");'/>"+
           "</td><td><input type='button' id='deleteBtn' value='Delete' onClick='Delete(\""+data[i].doc._id+"\");'/></td></tr>";
 
@@ -343,10 +344,16 @@ function Edit(_id){
   
 //location.assign("spotsurveycommercialupdate.html");
 }
-function Report(_id){
+function Report(_id,val){
  //localStorage.setItem("spot_commercial",_id);
 //location.assign("viewcommercial.html");
-window.location.href = 'viewspotcommercial.html?_id=' +_id;
+if(val==1){
+    window.location.href = 'viewspotcommercial.html?_id=' +_id;
+  }
+  else if(val==2){
+   window.location.href = 'viewspotcommercialformat.html?_id=' +_id;
+  }
+
 }
 
 function Bill(_id){
@@ -426,7 +433,7 @@ function check_company_code(){
         }
     }
             
-    
+    /*
     function check_policy_no(){
        var pattern=/^[0-9]*$/;
         var cover_length=$("#policy_number_final_private_id").val().length;
@@ -446,8 +453,7 @@ function check_company_code(){
              return error_policy_no=false;
         }
 
-
-    }
+    }*/
     function check_claim_code(){ 
         var pattern=/^[0-9]*$/;
         var claim_code_length=$("#claim_number_code_final_private_id").val().length;
@@ -467,7 +473,7 @@ function check_company_code(){
         }
     }
     
-    function check_claim_no(){ 
+   /* function check_claim_no(){ 
         var pattern=/^[0-9]*$/;  
         var claim_length=$("#claim_number_final_private_id").val().length;
         if(!pattern.test($("#claim_number_final_private_id").val())){
@@ -485,7 +491,7 @@ function check_company_code(){
             return error_claim_no=false;
         }
     }
-    
+    */
     function check_insurer_code(){
     var pattern=/^[0-9]*$/;
         var insurer_length=$("#insurer_code_final_private_id").val().length;

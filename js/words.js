@@ -291,7 +291,7 @@ for(var keyc in doc.comments_table){
 var lpamount=0,lpramount=0,lpast=0,lprast=0,tlpamount=0,tlpramount=0,namount=0,tnamount=0,amtnvat=0,pamount=0,plavat=0,tpamount=0,strp="";
 var claim_vat=0,asses_vat=0,depreciation=0;
 //console.log(doc.damage_parts);
-      console.log(doc.parts);
+      //console.log(doc.parts);
   if(doc.vat=='with_vat'){   
 if(doc.parts=='vat_on_total')
 {
@@ -1479,7 +1479,7 @@ if(doc.vehicle_colour_final_private_id==""){
 if(doc.vehicle_odometer_reading_final_private_id==""){
   document.getElementById("Odometer").style.display='none';
 }
-if(doc.road_tax_selection_final_private_id=="select"){
+if(doc.road_tax_selection_final_private_id==""){
   document.getElementById("road_tax").style.display='none';
 }
 if(doc.vehicle_condition_selection_final_private_id==""){
@@ -1488,7 +1488,7 @@ if(doc.vehicle_condition_selection_final_private_id==""){
 if(doc.dl_name_final_private_id==""&& doc.dl_address_final_private_id==""){
   document.getElementById("driver_name").style.display='none';
 }
-if(doc.dl_number_motor_private_id==""){
+if(doc.dl_number_final_private_id==""){
   document.getElementById("dl_license").style.display='none';
 }
 if(doc.dl_issue_date_final_private_id==""){
