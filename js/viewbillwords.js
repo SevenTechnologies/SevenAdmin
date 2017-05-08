@@ -21,8 +21,6 @@
  //document.getElementById("class_motor_private_id").value=doc.vehicle_class_final_private_id;
 // document.getElementById("body_type_motor_private_id").value=doc.vehicle_body_type_final_private_id;
 //document.getElementById("policy_code_bill_print_id").value=doc.policy_number_final_private_id;
-
-
 document.getElementById("license_no_bill_print_id").value=doc.dl_number_final_private_id;
 //document.getElementById("ins_name").innerHTML=doc.company_name_final_private_id;
 //document.getElementById("claim_print_id").innerHTML=doc.claim_number_code_final_private_id;
@@ -184,7 +182,6 @@ document.getElementById("name_of_prson_company_bill_print_id").innerHTML=doc.per
          document.getElementById("qualification_of_person_insurance_company_bill_print_id").innerHTML=doc.personal_designation;
     document.getElementById("address_of_person_insurance_company_bill_print_id").innerHTML=doc.personal_address;
     document.getElementById("tel_of_insurance_company_bill_print_id").innerHTML=doc.personal_office_phone;
-    document.getElementById("pan_no_bill_print_id").innerHTML=doc.personal_pan;
 
     // document.getElementById("home_of_insurance_company_bill_print_id").innerHTML=doc.personal_home_phone;
     document.getElementById("mobile_of_insurance_company_bill_print_id").innerHTML=doc.personal_mobile;

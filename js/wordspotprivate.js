@@ -10,16 +10,22 @@
   db.get(a,function(err,doc){
        //console.log(doc.report_date_final_private_id);
     if(!err){
+     // document.getElementById("spot_photos_print_id").innerHTML=doc.spot_photo_claimed_final_private_id;
+     // document.getElementById("spot_photos_assessed_print_id").innerHTML=doc.spot_photo_assessed_final_private_id
+      //document.getElementById("spot_repair_print_id").innerHTML=doc.spot_repairs_claimed_final_private_id;
+     // document.getElementById("spot_repair_assessed_print_id").innerHTML=doc.spot_repairs_assessed_final_private_id;
    
  //document.getElementById("total_labour_assessed_print_id").innerHTML=doc.total_labour_assessed_final_private_id;
       // document.getElementById("cost_parts_assessed_print_id").innerHTML=doc.cost_of_spare_parts_assessed_final_private_id;
  document.getElementById("class_motor_private_id").value=doc.vehicle_class_final_private_id;
  document.getElementById("body_type_motor_private_id").value=doc.vehicle_body_type_final_private_id;
 //document.getElementById("policy_code_bill_print_id").value=doc.policy_number_final_private_id;
-//document.getElementById("license_no_bill_print_id").value=doc.dl_number_final_private_id;
+document.getElementById("dl_number_motor").innerHTML=doc.dl_number_final_private_id;
 document.getElementById("ins_name").innerHTML=doc.company_name_final_private_id;
 document.getElementById("ins_date").innerHTML=doc.report_date_final_private_id;
+ document.getElementById("dl_number_motor_private_id").innerHTML=doc.dl_number_final_private_id;
 document.getElementById("claim_print_id").innerHTML=doc.claim_number_code_final_private_id;
+
  
 
 var str="",str1="";
@@ -55,7 +61,7 @@ var str="",str1="";
      db.get(a,function(err,doc){
       
      //   document.getElementById("license_no_id").innerHTML=doc.personal_license_number;
-    //document.getElementById("pan_no_motor_print_id").innerHTML=doc.personal_pan;
+    document.getElementById("pan_no_motor_print_id").innerHTML=doc.personal_pan;
 
       document.getElementById("name_of_prson_company_motor_print_id").innerHTML=doc.personal_name;         
          document.getElementById("qualification_of_person_insurance_company_motor_print_id").innerHTML=doc.personal_designation;
@@ -142,10 +148,10 @@ document.getElementById("report_number_motor_print_id").innerHTML=doc._id;
    document.getElementById("name_of_insurance_company_motor_print_id").innerHTML=doc.company_name_final_private_id;
     document.getElementById("address_of_insurance_company_motor_print_id").innerHTML=doc.company_address_final_private_id;
    // document.getElementById("policy_number_code_final_motor_id").value=doc.policy_number_code_final_private_id;
-   //document.getElementById("policy_motor_print_id").innerHTML=doc.policy_number_code_final_private_id;
-    //document.getElementById("policy_code_motor_print_id").innerHTML=doc.policy_number_final_private_id;
+   document.getElementById("policy_motor_print_id").innerHTML=doc.policy_number_code_final_private_id;
+   // document.getElementById("policy_code_motor_print_id").innerHTML=doc.policy_number_final_private_id;
    // document.getElementById("claim_number_code_final_private_id").value=doc.claim_number_code_final_private_id;
-   document.getElementById("claim_motor_print_id").innerHTML=doc.claim_number_final_private_id;
+   //document.getElementById("claim_motor_print_id").innerHTML=doc.claim_number_final_private_id;
    // document.getElementById("insurer_code_final_private_id").value=doc.insurer_code_final_private_id;
     document.getElementById("insurers_motor_print_id").innerHTML=doc.insurer_name_final_private_id;
     document.getElementById("insurers_address_motor_print_id").innerHTML=doc.insurer_address_final_private_id;
@@ -167,9 +173,9 @@ document.getElementById("insurance_period_from_motor_private_id").innerHTML=doc.
    document.getElementById("chassis_motor_private_id").innerHTML=doc.vehicle_chassis_number_final_private_id;
     document.getElementById("engine_motor_private_id").innerHTML=doc.vehicle_engine_number_final_private_id;
     document.getElementById("colour_motor_private_id").innerHTML=doc.vehicle_colour_final_private_id;
-  // document.getElementById("road_tax_motor_private_id").value=doc.road_tax_selection_final_private_id;
+   document.getElementById("road_taxx_motor").innerHTML=doc.road_tax_selection_final_private_id;
 
-    document.getElementById("road_taxx_motor_private_id").value=doc.road_tax_date_final_private_id;
+    //document.getElementById("road_taxx_motor_private_id").value=doc.road_tax_date_final_private_id;
  document.getElementById("body_type_motor_private_id").innerHTML=doc.vehicle_body_type_final_private_id;
    document.getElementById("class_motor_private_id").innerHTML=doc.vehicle_class_final_private_id;
    document.getElementById("vehicle_condition_selection_motor_private_id").innerHTML=doc.vehicle_condition_selection_final_private_id;
@@ -223,6 +229,112 @@ for(var keyc in doc.surveyor){
   //console.log(strc);
 }
 
+if(doc.policy_number_code_final_private_id==""){
+  document.getElementById("policy").style.display='none';
+}
+if(doc.claim_number_code_final_private_id==""){
+  document.getElementById("claim").style.display='none';
+}
+if(doc.insurer_name_final_private_id ||doc.insurer_address_final_private_id ==""){
+  document.getElementById("insurer").style.display='none';
+}
+if(doc.insured_name_final_private_id ||doc.insured_address_final_private_id ==""){
+  document.getElementById("insured").style.display='none';
+}
+if(doc.insurance_period_from_final_private_id || doc.insurance_period_to_final_private_id==""){
+  document.getElementById("insurance_period").style.display='none';
+}
+if(doc.insurance_endorsement_final_private_id==""){
+  document.getElementById("Endorsement").style.display='none';
+}
+
+if(doc.sum_insured_final_private_id==""){
+  document.getElementById("sum").style.display='none';
+}
+if(doc.hpahyp_final_private_id==""){
+  document.getElementById("hpa").style.display='none';
+}
+if(doc.rc_verification_selection_final_private_id==""){
+  document.getElementById("rc").style.display='none';
+}
+if(doc.vehicle_registerd_number_final_private_id==""){
+  document.getElementById("reg").style.display='none';
+}
+if(doc.vehicle_registration_date_final_private_id==""){
+  document.getElementById("date_reg").style.display='none';
+}
+if(doc.vehicle_chassis_number_final_private_id==""){
+  document.getElementById("chassis").style.display='none';
+}
+if(doc.vehicle_engine_number_final_private_id==""){
+  document.getElementById("Engine").style.display='none';
+}
+if(doc.vehicle_make_final_private_id==""&& doc.vehicle_model_final_private_id==""){
+  document.getElementById("make").style.display='none';
+}
+if(doc.vehicle_body_type_final_private_id==""){
+  document.getElementById("body_type").style.display='none';
+}
+if(doc.vehicle_class_final_private_id==""){
+  document.getElementById("class").style.display='none';
+}
+if(doc.vehicle_colour_final_private_id==""){
+  document.getElementById("color").style.display='none';
+}
+if(doc.vehicle_odometer_reading_final_private_id==""){
+  document.getElementById("Odometer").style.display='none';
+}
+if(doc.road_tax_selection_final_private_id==""){
+  document.getElementById("road_tax").style.display='none';
+}
+if(doc.vehicle_condition_selection_final_private_id==""){
+  document.getElementById("condition").style.display='none';
+}
+if(doc.dl_name_final_private_id==""&& doc.dl_address_final_private_id==""){
+  document.getElementById("driver_name").style.display='none';
+}
+if(doc.dl_number_final_private_id==""){
+  document.getElementById("dl_license").style.display='none';
+}
+if(doc.dl_issue_date_final_private_id==""){
+  document.getElementById("dl_date").style.display='none';
+}
+if(doc.dl_type_final_private_id==""){
+  document.getElementById("dl_type").style.display='none';
+}
+if(doc.dl_endorsements_final_private_id==""){
+  document.getElementById("dl_endorsements").style.display='none';
+}
+if(doc.accident_date_final_private_id || doc.accident_time_final_private_id ==""){
+  document.getElementById("acc_time").style.display='none';
+}
+if(doc.accident_place_final_private_id==""){
+  document.getElementById("acc_place").style.display='none';
+}
+if(doc.accident_cause_final_private_id==""){
+  document.getElementById("acc_cause").style.display='none';
+}
+if(doc.accident_reported_to_police_final_private_id==""){
+  document.getElementById("acc_report").style.display='none';
+}
+if(doc.name_of_police_station_final_private_id==""){
+  document.getElementById("police").style.display='none';
+}
+if(doc.fir_details_final_private_id==""){
+  document.getElementById("fir").style.display='none';
+}
+if(doc.property_damage_final_private_id==""){
+  document.getElementById("tp").style.display='none';
+}
+/*if(doc.details_of_injury_final_private_id==""){
+  document.getElementById("injuries").style.display='none';
+}*/
+if(doc.survey_request_date_final_private_id==""){
+  document.getElementById("date_request").style.display='none';
+}
+if(doc.survey_place_final_private_id==""){
+  document.getElementById("survey_place").style.display='none';
+}
 
 }
 

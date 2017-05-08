@@ -134,34 +134,38 @@
                                 <textarea  rows="4" cols="30" name="company_address_final_private_id" id="company_address_final_private_id" class="form-control" ></textarea>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <label>Policy/ Cover note no.:</label>
-                            </div>
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <input type="text" size="6" name="policy_number_code_final_private_id" id="policy_number_code_final_private_id" class="form-control" maxlength="4">
-                                    <label class="input-group-addon">-</label>
-                                    <input class="form-control" type="text" name="policy_number_final_private_id" id="policy_number_final_private_id" maxlength="6">
-                                </div>
-                                <span id="pn_error_msg" style="color:red;"></span>
+                      <div class="row">
+                        <div class="col-xs-2">
+                            <label> Policy/ Cover note no.:</label>
+                        </div>
+                        <div class="col-xs-3">
+                            
+                                <input type="text" size="6" id="policy_number_code_final_private_id" name="policy_number_code_final_private_id" class="form-control" maxlength="10" >
+                                
+                                <!--<label class="input-group-addon">-</label>
+                                <input class="form-control" type="text" name="policy_number_final_private_id" id="policy_number_final_private_id" maxlength="6">-->
+                                
+                            
+                            <span id="pn_error_msg" style="color:red;"></span>
                             <span id="pc_error_msg" style="color:red;"></span>
-                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <label>Claim No:</label>
-                            </div>
-                            <div class="col-xs-3">
-                                <div class="input-group">
-                                    <input type="text" size=6 name="claim_number_code_final_private_id" id="claim_number_code_final_private_id" class="form-control" maxlength="4">
-                                    <label class="input-group-addon">-</label>
-                                    <input class="form-control" type="text" name="claim_number_final_private_id" id="claim_number_final_private_id" maxlength="6">
-                                </div>
-                                <span id="cn_error_msg" style="color:red;"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <label> Claim No:</label>
+                        </div>
+                        <div class="col-xs-3">
+                            
+                                <input type="text" size=6 id="claim_number_code_final_private_id" name="claim_number_code_final_private_id" class="form-control"  >
+                               <!-- <label class="input-group-addon">-</label>
+                                <input class="form-control" type="text" id="claim_number_final_private_id" name="claim_number_final_private_id" maxlength="6" >-->
+                                
+                            
+                            <span id="cn_error_msg" style="color:red;"></span>
                             <span id="c1_error_msg" style="color:red;"></span>
-                            </div>
                         </div>
+                        <!--insurers should auto populate based on ?-->
+                    </div>
                         <div class="row">
                             <div class="col-xs-2">
                                 <label>Insurer Code:</label>
@@ -945,9 +949,9 @@
     $("#dr_error_msg").hide(); 
     
     var error_company_code=false;
-    var error_policy_no=false;
+   // var error_policy_no=false;
     var error_policy_code=false;
-    var error_claim_no=false;
+   // var error_claim_no=false;
      var error_claim_code=false;
     var error_insurer_code=false;
     var error_endorsement_no=false;
@@ -965,20 +969,20 @@
         check_policy_code();
         
     });
-    $("#policy_number_final_private_id").focusout(function(){
+ /*   $("#policy_number_final_private_id").focusout(function(){
         check_policy_no();
         
     });
-    
+    */
     
     $("#claim_number_code_final_private_id").focusout(function(){
         check_claim_code();
         
     });
-    $("#claim_number_final_private_id").focusout(function(){
+   /* $("#claim_number_final_private_id").focusout(function(){
         check_claim_no();
         
-    });
+    });*/
     
     $("#insurer_code_final_private_id").focusout(function(){
         check_insurer_code();

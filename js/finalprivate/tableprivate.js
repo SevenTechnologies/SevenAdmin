@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var vehicleCounter = 0, surveyCounter = 0, partsCounter = 0, commentCounter = 0,counter=0,subcount=0,rCount;
+var vehicleCounter = 0, surveyCounter = 0, partsCounter = 0, commentCounter = 0,counter=0,subcount=0,rCount,partsDeleteCounter=0,count=1;
 
 function addRow(tableId) {
 
@@ -403,9 +403,9 @@ function addRow(tableId) {
             deletedReason.className = 'deleted_reason_class';
             deletedReason.name= "damage_parts["+rCount+"][0][reason]";
             deletedReason.className += ' form-control';
-            deletedReason.onfocusout=function(){
-                addRow(2);
-            };
+            //deletedReason.onfocusout=function(){
+               // addRow(2);
+            //};
             deletedReason.rows = 2;
             deletedReason.cols = 20;
         //    deletedReason.style.display = 'none';
@@ -421,8 +421,36 @@ function addRow(tableId) {
             deleteRow.type = 'button';
             deleteRow.value = 'Remove Part';
             deleteRow.onclick = function () {
-
+              // var p=$("textarea#deleted_reason"+partsCounter).val();
+            //alert(p);
+            //var inp = 
+            var o=(rCount-1);
+            //if ($('#deleted_reason'+o) != undefined) {
+            var inp = $('#deleted_reason'+o).val();
+            alert($('#deleted_reason'+o).val());
+             if(jQuery.trim(inp).length == 0){
                 removeeRow(rCount,mainDiv.id);
+             }else{
+                 alert("m"+o);
+
+                deletedTableRow("m"+o);
+                 removeeRow(rCount,mainDiv.id);
+
+                
+                //count++;
+             }
+            //}
+                
+            
+            //console.log(inp);
+           // console.log(jQuery.trim(inp).length);
+
+             //{
+   //do something
+              
+              //addRow(4);
+              
+             // }
 
             };
             deleteRowCell.appendChild(deleteRow);
@@ -532,9 +560,51 @@ function addRow(tableId) {
             commentCounter++;
             comments.focus();
             break;
+
+
+
     }
 
 
+}
+
+function deletedTableRow(m){
+        var str=m.substring(1,100);
+        console.log(str);
+        str=parseInt(str,10)+1;
+        //damage_parts[3][0][sl_no]
+
+       document.getElementById("damagedPartsDeleteTable").style.display="block";
+       //console.log("damage_parts["+str+"][0][sl_no");
+       //$()
+
+       //document.getElementById("damage_parts["+str+"][0][sl_no]").innerHTML=count;
+
+       var source = document.getElementById(m);
+       source
+       var destination = document.getElementById('damagedPartsDeleteTable');
+       var copy = source.cloneNode(true);
+       copy.setAttribute('id', 'damagedPartsDeleteTable');
+       //var x = document.getElementById("damage_parts["+str);  
+      copy.setAttribute('name',"deleted_parent");
+// If the <a> element has a target attribute, set the value to "_self"
+
+       destination.parentNode.appendChild(copy);
+       //copy.setAttribute()
+      console.log(destination.innerHTML);
+            
+       
+              //$("#damagedPartsDeleteTable tbody").append(tr);
+             //tableDiv.appendChild($( "#m" ).html());
+            
+    //document.getElementById("demo").innerHTML = x;
+
+
+            //addSubRow(rowCount);
+        //}
+        
+        
+      count++;  
 }
 
 
@@ -642,8 +712,9 @@ for (var i = 0; i < serialNumber.length; i++) {
    // rowDiv[i].onclick=addSubRow(rowDiv.id);  
     //
 
-}   
+   
 //var f=serialNumber.length;
+//rCount--;
     //console.log('btn btn-primary damage_parts_'+(f+1));
      var cls=document.getElementsByClassName('btn btn-primary main');
      console.log(cls);
@@ -655,17 +726,17 @@ for (var i = 0; i < serialNumber.length; i++) {
         console.log(z);
         cls[k].className="btn btn-primary main damage_parts_"+(k+1);
         cls[k].id="add_part"+(k+1);
+        cls[k].onclick=function(){
+    addSubRow(i);
+    };
+}        // button ID 
+   // https://web.whatsapp.com/
+    //trid = $('tr').attr('id'); // table row ID 
+//});
         
         
      }
-     $('input[type=button]' ).click(function() {
-    bid = (this.id) ;
-    bid=bid.substring(8,10); 
-    console.log(bid);
-    addSubRow(bid);// button ID 
-   // https://web.whatsapp.com/
-    //trid = $('tr').attr('id'); // table row ID 
-});
+
      //cls.onclick=function(){
             //var q=document.getElementById("add_part"+(k+1)).value;
            // q=q.substring(6,10);
@@ -678,8 +749,8 @@ for (var i = 0; i < serialNumber.length; i++) {
     //};
 //subcount--;
 //console.log(rCount);
-//rCount--;
-partsCounter--;
+
+//partsCounter--;
 //total_sub++;
 //return  parentDiv[i].id="m"+(i+1);
         //val++;

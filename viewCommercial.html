@@ -51,14 +51,14 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;<span id="name_of_prson_company_motor_print_id" name="name_of_prson_company_motor_print_id"></span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span id="qualification_of_person_insurance_company_motor_print_id" name="qualification_of_person_insurance_company_motor_print_id"></span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span id="address_of_person_insurance_company_motor_print_id" name="address_of_person_insurance_company_motor_print_id"></span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<label class="label_class">Telephone No</label>:  <span id="tel_of_insurance_company_motor_print_id" name="tel_of_insurance_company_motor_print_id"></span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;<label class="label_class">mobile No</label>:  <span id="mobile_of_insurance_company_motor_print_id" name="mobile_of_insurance_company_motor_print_id"></span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<label class="label_class">TelNo</label>:  <span id="tel_of_insurance_company_motor_print_id" name="tel_of_insurance_company_motor_print_id"></span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<label class="label_class">mobileNo</label>:  <span id="mobile_of_insurance_company_motor_print_id" name="mobile_of_insurance_company_motor_print_id"></span><br>
                     &nbsp;&nbsp;&nbsp;&nbsp;<label class="label_class">Email</label>:  <span id="email_of_insurance_company_motor_print_id" name="email_of_insurance_company_motor_print_id"></span>
                             </td>
                             <td>
                             <label class="label_class">License No</label>:  <span id="license_no_id" name="license_no_id"></span><br>
                        <label class="label_class">Valid Upto</label>:  <span id="valid_upto_motor_print_id" name="valid_upto_motor_print_id"></span><br>
-                        <label class="label_class">PAN No</label>:  <span id="pan_no_motor_print_id" name="pan_no_motor_print_id"></span><br>
+                        <label class="label_class">PA No</label>:  <span id="pan_no_motor_print_id" name="pan_no_motor_print_id"></span><br>
                             </td>
                            
                         </tr>
@@ -167,7 +167,7 @@
                 <td>Endorsement Nos
                 </td>
                 <td>
-                Rs.:<span id="insurance_endorsement_motor_private_id" name="insurance_endorsement_motor_private_id"></span>
+                :Rs.<span id="insurance_endorsement_motor_private_id" name="insurance_endorsement_motor_private_id"></span>
                 </td>
             </tr> 
 
@@ -355,10 +355,10 @@
         </td>
     </tr> 
 <tr class="details" id="route_area">
-        <td>
+        <td style="border-bottom:1px solid black;">
         Route/Area in which Permitted to ply
         </td>
-        <td>
+        <td style="border-bottom:1px solid black;">
         :<span id="route_bill_print_id" name="route_bill_print_id"></span>
         </td>
     </tr>
@@ -413,7 +413,7 @@
                 </th>
             </tr>
             <tr class="details" id="driver_name">
-                <td >
+                <td>
                  Name and Address
                 </td>
                 <td>
@@ -445,6 +445,7 @@
             </tr>
             <tr class="details">
             <td colspan="2">
+            <h2 style="page-break-before: always;"></h2>
                 <table id="example" class="display" cellspacing="0" width="100%" border='1'>
                     <thead>
                        <tr>
@@ -512,12 +513,15 @@
             </tr>
 -->
 
-        
- <tr>
+        <tr>
                 <th colspan="2" style="padding-top: 10px;">
-                <u> Details of Load Challen/Trip Sheet</u>
+                   
+                  <u>   DETAILS OF LOAD CHALLEN/ TRIP SHEET</u>
                 </th>
+                
             </tr>
+
+
             <tr class="details" id="nature_goods">
                 <td>
                  Nature of Goods carried &its Weight
@@ -535,10 +539,10 @@
                 </td>
             </tr>
             <tr class="details" id="transport">
-                <td>
+                <td style="border-bottom:1px solid black;">
                  Transported From
                 </td>
-                <td>
+                <td style="border-bottom:1px solid black;">
                      :<span id="transported_bill_print_id" name="transported_bill_print_id">
                 </td>
             </tr>
@@ -959,38 +963,39 @@
                 </td>
             </tr>
             
-            
-            <h3>Parts & labour:</h3>
+             <h3>Parts & labour:</h3>
             <h3><u>PARTS</u></h3>
             <table cellpadding="0" cellspacing="0" >
             <thead>
             <tr class="heading">
-                <td><b>SI</b></td><td><b>Particulars</b></td><td><b>QE</b></td><td><b>QA</b></td><td><b>Est.Rate</b></td><td><b>Est.Amt</b></td><td></td><td><b>ASSESSED</b></td> 
-                <td><b>AMOUNT</b></td><td></td><td><b>VAT</b></td><td><b>HChg</b></td></tr>
+                <td><b>SI</b></td><td><b>Particulars</b></td><td><b>Claimed</b></td><td><b>Assessed</b></td><td></td><td><b>ASSESSED</b></td> 
+                <td><b>AMOUNT</b></td><td></td><td></td></tr>
             <tr class="heading">
-               <td></td><td></td><td></td><td></td><td></td><td></td><td><b>Metal</b></td><td><b>Rub/Plast</b></td><td><b>Fibre</td><td><b>Glass</b></td>
-               <b><td><b>(%)</b></td><td><b>(%)</b></td>
+               <td></td><td></td><td></td><td></td><td><b>Metal</b></td><td><b>Rub/Plast</b></td><td><b>Fibre</td><td><b>Glass</b></td><td><b>Others</b></td>
             </tr>
 
             </thead>
          
-
+            
             <tbody id="parts">
             
             </tbody>
             <tbody>
-            <tr><td></td><td></td><td></td><td></td><td></td><td class="total" id="amount"></td><td class="total" id="mamount"></td><td class="total" id="rpamount"></td><td class="total" id="famount"></td><td class="total" id="gamount"></td><td></td><td></td></tr>
-            <tr><td></td><td>(+)</td><td>VAT</td><td>@</td><td>14.50%:</td><td id="amtvat"></td><td id="metvat"></td><td id="rubvat"></td><td id="fabvat"></td><td id="glavat"></td><td></td><td></td></tr>
-            <tr ><td></td><td></td><td></td><td></td><td><b>Total:</b></td><td class="total" id="tamount"></td><td class="total" id="tmamount"></td><td class="total" id="trpamount"></td><td  class="total" id="tfamount"></td><td class="total" id="tgamount"></td><td></td><td></td></tr>
+            <tr id="total_amount"><td></td><td></td><td class="total" id="amount"></td><td class="total" id="namount"></td><td class="total" id="mamount"></td><td class="total" id="rpamount"></td><td class="total" id="famount"></td><td class="total" id="gamount"></td><td class="total" id="samount"></td></tr>
+            <tr id="vat_bill"><td></td><td>(+) VAT @14.50%:</td><td id="amtvat"></td><td id="amtnvat"></td><td id="metvat"></td><td id="rubvat"></td><td id="fabvat"></td><td id="glavat"></td><td id="slavat"></td></tr>
+            <tr ><td></td><td><b>Total:</b></td><td class="total" id="tamount"></td><td class="total" id="tnamount"></td><td class="total" id="tmamount"></td><td class="total" id="trpamount"></td><td  class="total" id="tfamount"></td><td class="total" id="tgamount"></td><td class="total" id="tsamount"></td></tr>
 
-            <tr><td></td><td colspan="2"><b>Depresiation on metal@ <span id="depresiationmetal" name="depresiationmetal"></span></b></td><td class="total">-</td><td id=mtotal class="total"></td><td class="total">-</td><td class="total">-</td><td class="total">-</td><td class="total">-</td></tr>
-             <tr ><td></td><td colspan="2"><b>Depresiation on fibre@ <span id="depresiationfibre" name="depresiationmetal"></span></b></td><td class="total">-</td><td class="total">-</td><td class="total">-</td><td id=fabrictotal class="total"></td><td class="total">-</td><td class="total">-</td></tr>
-             <tr><td></td><td colspan="2"><b>Depresiation on materials@ <span id="depresiationplastic" name="depresiationmetal"></span></b></td><td class="total">-</td><td class="total">-</td><td id=plastictotal class="total"></td><td class="total">-</td><td id=glasstotal class="total" ></td><td class="total">-</td></tr>
-
+             <tr id="deprow1"><td colspan="2"><b>Depreciation on metal@ <span id="depresiationmetal" name="depresiationmetal"></span>%</b></td><td class="total">-</td><td id="met_dep" class="total"></td><td class="total">-</td><td class="total">-</td><td class="total">-</td><td class="total">-</td><td class="total"></td></tr>
+             <tr id="deprow2"><td colspan="2"><b>Depreciation on fibre@ <span id="depresiationfibre" name="depresiationmetal"></span>%</b></td><td class="total">-</td><td class="total">-</td><td class="total">-</td><td id="fib_dep" class="total"></td><td class="total">-</td><td class="total">-</td><td class="total"></td></tr>
+             <tr id="deprow3"><td colspan="2"><b>Depreciation on materials@ <span id="depresiationplastic" name="depresiationmetal"></span>%</b></td><td class="total">-</td><td class="total">-</td><td id="pla_dep" class="total"></td><td class="total">-</td><td id=glasstotal class="total" ></td><td class="total">-</td><td class="total"></td></tr>
+             <tbody id="paint"></tbody>
+             <tr><td></td><td>(+) VAT @<span id="percent"></span>%:</td><td class="total" id="claim_vat"></td><td class="total" id="asses_vat"></td><td class="total"></td><td class="total"></td><td class="total"></td><td class="total"></td><td class="total"></td></tr>
+             <tr ><td></td><td><b>Total:</b></td><td class="total" id="pamount"></td><td class="total" id="tpamount"></td><td class="total" ></td><td class="total" ></td><td  class="total"></td><td class="total" ></td><td class="total"></td></tr>
             </tbody>
                
 
             </table>
+
 
             
 

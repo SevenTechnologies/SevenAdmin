@@ -1,7 +1,8 @@
 var db=new PouchDB('sevenTech');
 //var final_commercial_details= $('#form_final_private_id').serializeObject();
 //final_commercial_details._id= $('#report_number_final_private_id').val();
-
+var aValue =  localStorage.getItem('id');
+console.log(aValue);
 function updateFinalCommercial(){
        
 var error_company_code,error_policy_no,error_permit_no, error_policy_code,error_claim_no, error_claim_code,error_insurer_code, error_endorsement_no, error_registration_no; 
@@ -223,7 +224,7 @@ function listData(data){
       str+="<tr id='row'><td>"+count+"</td><td>"+data[i].doc._id+"</td><td>"
         +data[i].doc.vehicle_registerd_number_final_private_id+"</td><td>"+data[i].doc.survey_request_date_final_private_id+"</td><td>"
         +data[i].doc.survey_place_final_private_id+"</td><td><input type='button' value='Edit' onClick='Edit(\""+data[i].doc._id+"\");'/>"+
-         "</td><td> <input type='button' value='View' onClick='Report(\""+data[i].doc._id+"\");'/>"+
+         "</td><td> <input type='button' value='View' onClick='Report(\""+data[i].doc._id+"\",\""+aValue+"\");'/>"+
          "</td><td> <input type='button' value='View' onClick='Bill(\""+data[i].doc._id+"\");'/>"+
          "</td><td> <input type='button' value='REMOVE' id='theValue' onClick='Delete(\""+data[i].doc._id+"\");'/></td></tr>";
 
@@ -392,9 +393,16 @@ function Edit(_id){
  // location.assign("finalcommercialupdate.html");
   //console.log("hi");
 }
-function Report(_id){
+function Report(_id,val){
   
-   window.location.href = 'viewCommercial.html?_id=' +_id;
+  console.log(val);
+  if(val==1){
+     window.location.href = 'viewCommercial.html?_id=' +_id;
+  }
+  else if(val==2){
+  window.location.href = 'viewCommercialformat.html?_id=' +_id;
+  }
+  
  //localStorage.setItem("final_private",_id);
  //location.assign("viewCommercial.html");
 }

@@ -1,4 +1,6 @@
 var db= new PouchDB('sevenTech');
+var aValue =  localStorage.getItem('id');
+console.log(aValue);
 function updateSpotPrivate(){
 /*    var report_no=document.form_final_private_id.report_number_final_private_id.value;
     var date=document.form_final_private_id.report_date_final_private_id.value;
@@ -189,7 +191,7 @@ var spotprivate_details={
 
 };
 */
-var error_company_code,error_policy_no, error_policy_code,error_claim_no, error_claim_code,error_insurer_code, error_endorsement_no, error_registration_no; 
+var error_company_code, error_policy_code, error_claim_code,error_insurer_code, error_endorsement_no, error_registration_no; 
     //var error_policy_no=true;
    //var error_drivers_liscense_no=false;   
    //var error_drivers_permit_no=true;
@@ -198,10 +200,10 @@ var error_company_code,error_policy_no, error_policy_code,error_claim_no, error_
 
         error_company_code=check_company_code();
        
-       error_policy_no= check_policy_no();
+      // error_policy_no= check_policy_no();
        error_policy_code= check_policy_code();
        
-        error_claim_no=check_claim_no();
+        //error_claim_no=check_claim_no();
         error_claim_code=check_claim_code();
         
         error_insurer_code=check_insurer_code();
@@ -210,7 +212,7 @@ var error_company_code,error_policy_no, error_policy_code,error_claim_no, error_
        
         error_registration_no=check_registration_no();
           //console.log(a);
-if(error_company_code == false && error_policy_no== false && error_policy_code== false && error_claim_no == false && error_claim_code == false && error_insurer_code == false && error_endorsement_no==false && error_registration_no==false){
+if(error_company_code == false && error_policy_code== false && error_claim_code == false && error_insurer_code == false && error_endorsement_no==false && error_registration_no==false){
 document.getElementById("reinspection").disabled = false;
 var data =$('#form_final_private_id').serializeObject();
 console.log(data);
@@ -262,6 +264,7 @@ data._id = $('#report_number_final_private_id').val();
 }else{
            // return false;
             document.getElementById("message").innerHTML="*UNSUCCESSFUL INSERTION";
+            console.log(error);
             //return false;
         
         }
@@ -278,10 +281,10 @@ var error_company_code,error_policy_no, error_policy_code,error_claim_no, error_
 
         error_company_code=check_company_code();
        
-       error_policy_no= check_policy_no();
+       //error_policy_no= check_policy_no();
        error_policy_code= check_policy_code();
        
-        error_claim_no=check_claim_no();
+        //error_claim_no=check_claim_no();
         error_claim_code=check_claim_code();
         
         error_insurer_code=check_insurer_code();
@@ -290,7 +293,7 @@ var error_company_code,error_policy_no, error_policy_code,error_claim_no, error_
        
         error_registration_no=check_registration_no();
           //console.log(a);
-if(error_company_code == false && error_policy_no== false && error_policy_code== false && error_claim_no == false && error_claim_code == false && error_insurer_code == false && error_endorsement_no==false && error_registration_no==false){
+if(error_company_code == false && error_policy_code== false && error_claim_code == false && error_insurer_code == false && error_endorsement_no==false && error_registration_no==false){
 document.getElementById("reinspection").disabled = false;
 var data =$('#form_final_private_id').serializeObject();
 console.log(data);
@@ -334,6 +337,8 @@ data._id = $('#report_number_final_private_id').val();
 }else{
            // return false;
             document.getElementById("message").innerHTML="*UNSUCCESSFUL INSERTION";
+                        console.log(error);
+
             //return false;
         
         }
@@ -523,7 +528,7 @@ function list(data){
         "</td><td>"+data[i].doc.per_photo_price_final_private_id+"</td><td>"+data[i].doc.outstation_allowance_final_private_id+
         "</td><td>"+data[i].doc.postage_charges_final_private_id+*/
         "</td><td><input type='button'  id='editBtn' value='Edit' onClick='Edit(\""+data[i].doc._id+"\");'/>"+
-         "</td><td><input type='button'  id='viewBtn' value='View' onClick='Report(\""+data[i].doc._id+"\");'/>"+
+         "</td><td><input type='button'  id='viewBtn' value='View' onClick='Report(\""+data[i].doc._id+"\",\""+aValue+"\");'/>"+
          "</td><td><input type='button'  id='viewBtn' value='View' onClick='Bill(\""+data[i].doc._id+"\");'/>"+
           "</td><td><input type='button' id='deleteBtn' value='Delete' onClick='Delete(\""+data[i].doc._id+"\");'/></td></tr>";
        
@@ -569,9 +574,17 @@ function Edit(_id){
  // location.assign("finalcommercialupdate.html");
   //console.log("hi");
 }
-function Report(_id){
+function Report(_id,val){
   
-   window.location.href = 'viewprivate.html?_id=' +_id;
+
+  console.log(val);
+  if(val==1){
+    window.location.href = 'viewprivate.html?_id=' +_id;
+  }
+  else if(val==2){
+     window.location.href = 'viewprivateformat.html?_id=' +_id;
+  }
+   
  //localStorage.setItem("final_private",_id);
  //location.assign("viewCommercial.html");
 }
@@ -696,7 +709,7 @@ function check_company_code(){
     }
             
     
-    function check_policy_no(){
+    /*function check_policy_no(){
        var pattern=/^[0-9]*$/;
         var cover_length=$("#policy_number_final_private_id").val().length;
         
@@ -716,7 +729,7 @@ function check_company_code(){
         }
 
 
-    }
+    }*/
     function check_claim_code(){ 
         var pattern=/^[0-9]*$/;
         var claim_code_length=$("#claim_number_code_final_private_id").val().length;
@@ -735,7 +748,7 @@ function check_company_code(){
             return error_claim_code=false;
         }
     }
-    
+    /*
     function check_claim_no(){ 
         var pattern=/^[0-9]*$/;  
         var claim_length=$("#claim_number_final_private_id").val().length;
@@ -754,7 +767,7 @@ function check_company_code(){
             return error_claim_no=false;
         }
     }
-    
+    */
     function check_insurer_code(){
     var pattern=/^[0-9]*$/;
         var insurer_length=$("#insurer_code_final_private_id").val().length;
